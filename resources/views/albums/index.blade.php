@@ -12,14 +12,14 @@
           @if($i == $colcount)
              <div class='medium-4 columns end'>
                <a href="/albums/{{$album->id}}">
-                  <img class="thumbnail" src="storage/album_covers/{{$album->cover_img}}" alt="{{$album->name}}">
+                  <img class="thumbnail" src="/storage/album_covers/{{$album->cover_img}}" alt="{{$album->name}}">
                 </a>
                <br>
                <h4>{{$album->name}}</h4>
           @else
             <div class='medium-4 columns'>
               <a href="/albums/{{$album->id}}">
-                <img class="thumbnail" src="storage/album_covers/{{$album->cover_img}}" alt="{{$album->name}}">
+                <img class="thumbnail" src="/storage/album_covers/{{$album->cover_img}}" alt="{{$album->name}}">
               </a>
               <br>
               <h4>{{$album->name}}</h4>
