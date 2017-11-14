@@ -2,8 +2,12 @@
 
 @section('content')
 	<h1>{{$album->name}}</h1>
-	<a class="button secondary" href="/">Go Back</a>
-	<a class="button" href="/photos/create/{{$album->id}}">Upload photo to album</a>
+  {!!Form::open(['action' => ['AlbumsController@destroy', $album->id], 'method' => 'POST'])!!}
+  	<a class="button secondary" href="/">Go Back</a>
+  	<a class="button" href="/photos/create/{{$album->id}}">Upload photo to album</a>
+    {{Form::hidden('_method', 'DELETE')}}
+    {{Form::submit('Delete Album', ['class' => 'button alert float-right'])}}
+  {!!Form::close() !!}
 	<hr>
 
 	@if(count($album->photos) > 0)

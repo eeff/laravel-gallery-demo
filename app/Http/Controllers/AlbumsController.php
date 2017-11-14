@@ -9,7 +9,7 @@ class AlbumsController extends Controller
 {
     public function index()
     {
-    	$albums = Album::with('Photos')->get();
+    	$albums = Album::all();
         return view('albums.index')->with('albums', $albums);
     }
 
@@ -44,7 +44,15 @@ class AlbumsController extends Controller
 
     public function show($id)
     {
-    	$album = Album::find($id);
+    	$album = Album::with('photos')->find($id);
     	return view('albums.show')->with('album', $album);
+    }
+
+    public function destroy($id)
+    {
+        $album = Album::with('photos')->find($id);
+        $album->photos()->delete();
+        $album->delete();
+        return redirect("/")->with('success', 'Album Deleted');
     }
 }
