@@ -44,4 +44,17 @@ class PhotosController extends Controller
     	$photo = Photo::find($id);
     	return view('photos.show')->with('photo', $photo);
     }
+
+    public function destroy($id)
+    {
+    	$photo = Photo::find($id);
+    	if ($photo->delete()) {
+    		return redirect("/albums/{$photo->album_id}")
+    				->with('success', 'photo deleted');
+    	} else {
+    		return redirect("/albums/{$photo->album_id}")
+    				->withErrors(['photo deletion failed']);
+
+    	}
+    }
 }
