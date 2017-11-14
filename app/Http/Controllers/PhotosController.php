@@ -38,4 +38,10 @@ class PhotosController extends Controller
     		return redirect("/albums/{$photo->album_id}")->withErrors(['photo creation failure']);
     	}
     }
+
+    public function show($id)
+    {
+    	$photo = Photo::find($id);
+    	return view('photos.show')->with('photo', $photo);
+    }
 }
