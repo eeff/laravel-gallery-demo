@@ -3,10 +3,12 @@
 <head>
 	<title>PhotoShow</title>
 	<meta charset="utf-8">
-	<link href="https://cdn.bootcss.com/foundation/6.4.4-rc1/css/foundation.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/foundation/6.3.1/css/foundation.css" rel="stylesheet">
 </head>
 <body>
+	@include('inc.topbar')
 	<div class="row">
+		@include('inc.messages')
 		@yield('content')
 	</div>
 </body>
